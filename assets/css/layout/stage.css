@@ -185,27 +185,3 @@
     gap: 7px;
 }
 
-/* ── Slide Indicator Dots ── */
-.stage__dots {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin-top: 12px;
-}
-
-.stage__dot {
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.4);
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition:
-        background 0.3s ease,
-        transform 0.3s ease;
-}
-
-.stage__dot.is-active {
-    background: var(--color-white);
-    transform: scale(1);
-}
