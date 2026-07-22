@@ -1,0 +1,528 @@
+/* ──────────────────────────────────────────────────────────
+   4. HEADER & NAVIGATION
+   ────────────────────────────────────────────────────────── */
+.header {
+    position: sticky;
+    top: 0;
+    height: 32px;
+    z-index: 1000;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--navbar-height);
+    padding: 0 10px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.header__search-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.header__search-btn .icon-home {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.header__search-btn.active .icon-search {
+    display: none;
+}
+.header__search-btn.active .icon-home {
+    display: block;
+}
+
+/* ── Logo ── */
+.navbar__logo {
+    font-family: var(--font-Inter);
+    font-size: 15px;
+}
+
+/* ── Menu (Hamburger) Button ── */
+.navbar__menu-btn {
+    width: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar__menu-btn span {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-black);
+    transform-origin: center;
+    transition: transform var(--transition-menu);
+}
+
+.navbar__menu-btn span:first-child {
+    transform: translateY(-4px);
+}
+
+.navbar__menu-btn span:last-child {
+    transform: translateY(4px);
+}
+
+.navbar__menu-btn.active span:first-child {
+    transform: rotate(45deg);
+}
+
+.navbar__menu-btn.active span:last-child {
+    transform: rotate(-45deg);
+}
+
+.navbar__menu-btn:focus-visible {
+    outline: none;
+}
+
+/* ──────────────────────────────────────────────────────────
+   5. dropdown-Menu
+   ────────────────────────────────────────────────────────── */
+/* ── dropdown-Menu ──
+   ملحوظة: شلنا display:none من هنا لأنها كانت بتمنع ظهور
+   القائمة نهائيًا مهما اتضاف كلاس --active. التحكم في
+   الظهور/الاختفاء بقى بس عن طريق opacity + visibility. */
+.dropdown-Menu {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+    background: var(--color-white);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s;
+    overflow-y: auto;
+    pointer-events: none;
+}
+
+.dropdown-Menu--active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dropdown-Menu__wrapper {
+    max-width: 700px;
+
+    padding: 0 24px;
+}
+
+.popular-Menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 40px;
+}
+.popular-Menu__title {
+    font-size: 20px;
+    font-family: var(--font-Inter);
+    color: var(--color-black);
+    letter-spacing: 3px;
+    font-weight: 300;
+}
+.popular-Menu__link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #777;
+    display: inline-block;
+    width: fit-content;
+    transition:
+        color 0.25s,
+        padding-left 0.25s;
+}
+
+.popular-Menu__link:hover {
+    color: var(--color-black);
+    padding-left: 8px;
+}
+
+/* ── Projects ── */
+.dropdown-Menu__products {
+    margin-top: 30px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.product-card {
+    text-decoration: none;
+    display: block;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    opacity: 1;
+    transform: translateY(-4px);
+}
+
+.product-card__image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #f4f4f4;
+}
+
+.product-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-card__image img {
+    transform: scale(1.05);
+}
+
+.product-card__info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.product-card__name {
+    font-size: 13px;
+    color: var(--color-black);
+    font-weight: 400;
+    margin: 0;
+}
+
+.product-card__price {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+    display: block;
+}
+
+/* ── Skeleton Loading ── */
+.product-card--skeleton .product-card__image {
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+}
+
+.product-card--skeleton .product-card__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: shimmer 1.3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.product-card--skeleton .product-card__name,
+.product-card--skeleton .product-card__price {
+    background: #eee;
+    color: transparent;
+    border-radius: 3px;
+    display: inline-block;
+}
+/* ──────────────────────────────────────────────────────────
+   5. SEARCH OVERLAY
+   ────────────────────────────────────────────────────────── */
+/* ── SEARCH OVERLAY ── */
+.search-overlay {
+    position: fixed;
+    top: 32px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-white);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s;
+    overflow-y: auto;
+}
+
+.search-overlay--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-overlay__wrapper {
+    max-width: 700px;
+    margin: 200px auto 80px;
+    padding: 0 24px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+.search-overlay__input-wrap {
+    position: relative;
+}
+
+.search-overlay__input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #777;
+    padding: 12px 0;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s;
+    background: transparent;
+}
+
+.search-overlay__input:focus {
+    border-color: var(--color-black);
+}
+
+/* ── Ghost-text autocomplete (inline suggestion inside the field) ── */
+.search-overlay__ghost {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 12px 0;
+    font-size: 13px;
+    font-family: inherit;
+    text-align: center;
+    white-space: pre;
+    pointer-events: none;
+    color: #bbb;
+    overflow: hidden;
+}
+
+.search-overlay__ghost span:first-child {
+    visibility: hidden;
+}
+
+.search-overlay__ghost span:last-child {
+    margin-left: 1px;
+}
+
+/* ── Popular / Recent Searches ── */
+.popular-searches {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 40px;
+}
+
+.popular-searches__title {
+    font-size: 20px;
+    font-family: var(--font-Inter);
+    color: var(--color-black);
+    letter-spacing: 3px;
+    font-weight: 300;
+}
+.popular-searches__link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #777;
+    display: inline-block;
+    width: fit-content;
+    transition:
+        color 0.25s,
+        padding-left 0.25s;
+}
+
+.popular-searches__link:hover {
+    color: var(--color-black);
+    padding-left: 8px;
+}
+
+.recent-searches {
+    margin-top: 30px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.recent-searches--visible {
+    display: flex;
+}
+
+.recent-searches__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+}
+
+.recent-searches__item button {
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.recent-searches__item button:hover {
+    color: var(--color-black);
+}
+
+/* ── Featured Projects ── */
+.search-overlay__products {
+    margin-top: 30px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.product-card {
+    text-decoration: none;
+    display: block;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    opacity: 1;
+    transform: translateY(-4px);
+}
+
+.product-card__image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #f4f4f4;
+}
+
+.product-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-card__image img {
+    transform: scale(1.05);
+}
+
+.product-card__info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.product-card__name {
+    font-size: 13px;
+    color: var(--color-black);
+    font-weight: 400;
+    margin: 0;
+}
+
+.product-card__price {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+    display: block;
+}
+
+/* ── Skeleton Loading ── */
+.product-card--skeleton .product-card__image {
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+}
+
+.product-card--skeleton .product-card__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: shimmer 1.3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.product-card--skeleton .product-card__name,
+.product-card--skeleton .product-card__price {
+    background: #eee;
+    color: transparent;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+/* ── Empty State ── */
+.search-overlay__empty {
+    display: none;
+    text-align: center;
+    margin-top: 60px;
+    color: #777;
+}
+
+.search-overlay__empty--visible {
+    display: block;
+}
+
+.search-overlay__empty p {
+    font-size: 16px;
+    color: var(--color-black);
+    margin-bottom: 6px;
+}
+
+.search-overlay__empty span {
+    font-size: 13px;
+    color: #999;
+}
+
+@media (max-width: 640px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .search-overlay__wrapper {
+        margin: 100px auto 60px;
+    }
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>My Requests</title>
+      <style>
+         body {
+            font-family: -apple-system, system-ui, sans-serif;
+            background: #f5f4f2;
+            margin: 0;
+            padding: 32px 20px;
+            color: #111;
+         }
+         .container {
+            max-width: 640px;
+            margin: 0 auto;
+         }
+         h1 {
+            font-weight: 300;
+            font-size: 22px;
+            margin-bottom: 24px;
+         }
+         .card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+         }
+         .card__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+         }
+         .card__type {
+            font-size: 15px;
+            font-weight: 500;
+         }
+         .card__status {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+         }
+         .status-pending {
+            background: #fdf3d8;
+            color: #8a6d1d;
+         }
+         .status-in_progress {
+            background: #dde9fb;
+            color: #1e4f9e;
+         }
+         .status-completed {
+            background: #ddf3e0;
+            color: #1e7a2e;
+         }
+         .status-cancelled {
+            background: #f8dede;
+            color: #9e1e1e;
+         }
+         .card__detail {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 4px;
+         }
+         .card__date {
+            font-size: 11px;
+            color: #999;
+            margin-top: 8px;
+         }
+         .cancel-btn {
+            margin-top: 10px;
+            background: none;
+            border: 1px solid #c0392b;
+            color: #c0392b;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+         }
+         .cancel-btn:hover {
+            background: #c0392b;
+            color: #fff;
+         }
+         #empty,
+         #error {
+            font-size: 14px;
+            color: #777;
+         }
+         #error {
+            color: #c0392b;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div style="display: flex; justify-content: space-between; align-items: center">
+            <h1>My Requests</h1>
+            <button
+               id="logout-btn"
+               style="
+                  background: none;
+                  border: 1px solid #999;
+                  color: #555;
+                  padding: 6px 14px;
+                  font-size: 12px;
+                  cursor: pointer;
+                  height: fit-content;
+               ">
+               تسجيل خروج
+            </button>
+         </div>
+         <div id="error"></div>
+         <div id="empty" style="display: none">لسه معملتش أي طلب.</div>
+         <div id="list"></div>
+      </div>
+
+      <script>
+         const API_BASE = "http://localhost:3000";
+         const email = localStorage.getItem("email");
+
+         const statusLabels = {
+            pending: "قيد المراجعة",
+            in_progress: "قيد التنفيذ",
+            completed: "مكتمل",
+            cancelled: "ملغي"
+         };
+
+         async function loadMyRequests() {
+            const errorEl = document.getElementById("error");
+            const emptyEl = document.getElementById("empty");
+            const listEl = document.getElementById("list");
+
+            if (!email) {
+               errorEl.textContent = "لازم تسجل دخول الأول";
+               return;
+            }
+
+            try {
+               const response = await fetch(`${API_BASE}/api/my-requests?email=${encodeURIComponent(email)}`);
+               const data = await response.json();
+
+               if (!response.ok) {
+                  errorEl.textContent = data.error || "حصل خطأ";
+                  return;
+               }
+
+               if (!data.requests.length) {
+                  emptyEl.style.display = "block";
+                  return;
+               }
+
+               listEl.innerHTML = "";
+               data.requests.forEach((r) => {
+                  const card = document.createElement("div");
+                  card.className = "card";
+                  card.innerHTML = `
+                  <div class="card__top">
+                     <span class="card__type">${escapeHtml(r.project_type)}</span>
+                     <span class="card__status status-${r.status}">${statusLabels[r.status] || r.status}</span>
+                  </div>
+                  <div class="card__detail"><b>المشروع:</b> ${escapeHtml(r.project_name || "-")}</div>
+                  <div class="card__detail"><b>وسيلة التواصل:</b> ${escapeHtml(r.contact || "-")}</div>
+                  <div class="card__date">${new Date(r.created_at).toLocaleString()}</div>
+                  ${
+                     r.status === "pending"
+                        ? `<button class="cancel-btn" onclick="cancelRequest(${r.id}, this)">إلغاء الطلب</button>`
+                        : ""
+                  }
+               `;
+                  listEl.appendChild(card);
+               });
+            } catch (err) {
+               console.error(err);
+               errorEl.textContent = "مش قادر أوصل للسيرفر";
+            }
+         }
+
+         async function cancelRequest(id, btn) {
+            if (!confirm("متأكد إنك عايز تلغي الطلب ده؟")) return;
+
+            btn.disabled = true;
+            btn.textContent = "جاري الإلغاء...";
+
+            try {
+               const response = await fetch(`${API_BASE}/api/my-requests/${id}/cancel`, {
+                  method: "PATCH",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ email })
+               });
+
+               const data = await response.json();
+
+               if (!response.ok) {
+                  alert(data.error || "فشل الإلغاء");
+                  btn.disabled = false;
+                  btn.textContent = "إلغاء الطلب";
+                  return;
+               }
+
+               loadMyRequests(); // refresh the list
+            } catch (err) {
+               console.error(err);
+               alert("مش قادر أوصل للسيرفر");
+            }
+         }
+
+         function escapeHtml(str) {
+            const div = document.createElement("div");
+            div.textContent = str;
+            return div.innerHTML;
+         }
+
+         loadMyRequests();
+
+         document.getElementById("logout-btn").addEventListener("click", () => {
+            localStorage.removeItem("email");
+            localStorage.removeItem("firstName");
+            localStorage.removeItem("lastName");
+            window.location.href = "account.html";
+         });
+      </script>
+   </body>
+</html>

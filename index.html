@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Lux Krest</title>
+        <!-- Core Meta -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- SEO -->
+        <meta name="description" content="Luxury Website by LK Luxury Krest" />
+        <!-- Open Graph -->
+        <meta property="og:title" content="LK Luxury Krest" />
+        <meta property="og:description" content="Elevating elegance — crafting luxury digital experiences" />
+        <meta property="og:image" content="https://e1awa73dy-collab.github.io/LK-Luxury-Krest/0.jpg" />
+        <meta property="og:url" content="https://e1awa73dy-collab.github.io/LK-Luxury-Krest/" />
+        <meta property="og:type" content="website" />
+        <!-- Favicon -->
+        <link rel="icon" href="favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="icon.png" />
+        <!-- Performance: Preconnect to font origins -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@220&display=swap"
+            rel="stylesheet" />
+        <!-- Libraries -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet" />
+
+        <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="assets/css/base/base.css" />
+        <link rel="stylesheet" href="assets/css/layout/header.css" />
+        <link rel="stylesheet" href="assets/css/layout/stage.css" />
+        <link rel="stylesheet" href="assets/css/layout/trust.css" />
+        <link rel="stylesheet" href="assets/css/layout/work.css" />
+        <link rel="stylesheet" href="assets/css/layout/footer.css" />
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header class="header" role="banner">
+            <div class="header__container">
+                <!-- Hamburger menu button (toggles dropdown) -->
+                <button class="navbar__menu-btn" id="navbarMenuBtn" aria-label="menu">
+                    <span></span> <span></span>
+                </button>
+
+                <!-- Dropdown menu (shown/hidden via .dropdown-Menu--active) -->
+                <!--  SEARCH OVERLAY  -->
+                <div class="dropdown-Menu" id="dropdownMenu">
+                    <div class="dropdown-Menu__wrapper">
+                        <!-- Popular Searches -->
+                        <div class="popular-Menu">
+                            <h2 class="popular-Menu__title">The Main</h2>
+                            <a class="popular-Menu__link" href="#stage">Stage</a>
+                            <a class="popular-Menu__link" href="#trust">trust</a>
+                            <a class="popular-Menu__link" href="#work">Work</a>
+                            <a class="popular-Menu__link" href="#work__cta-btn">New Website</a>
+                        </div>
+
+                        <!-- Featured Projects -->
+                        <div class="dropdown-Menu__products">
+                            <h2 class="popular-Menu__title">Main</h2>
+                            <div class="product-grid">
+                                <a href="#" class="product-card">
+                                    <div class="product-card__image">
+                                        <img src="3.jpg" alt="VERD Botanical Atelier website" />
+                                    </div>
+                                    <div class="product-card__info">
+                                        <h4 class="product-card__name">VERD — Botanical Atelier</h4>
+                                        <span class="product-card__price">E-commerce · Fragrance</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="product-card">
+                                    <div class="product-card__image">
+                                        <img src="3.jpg" alt="Corporate website project" />
+                                    </div>
+                                    <div class="product-card__info">
+                                        <h4 class="product-card__name">Northgate Consulting</h4>
+                                        <span class="product-card__price">Corporate · Consulting</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="product-card">
+                                    <div class="product-card__image">
+                                        <img src="3.jpg" alt="Portfolio website project" />
+                                    </div>
+                                    <div class="product-card__info">
+                                        <h4 class="product-card__name">Studio Marin</h4>
+                                        <span class="product-card__price">Portfolio · Architecture</span>
+                                    </div>
+                                </a>
+
+                                <a href="#" class="product-card">
+                                    <div class="product-card__image">
+                                        <img src="3.jpg" alt="VERD Botanical Atelier website" />
+                                    </div>
+                                    <div class="product-card__info">
+                                        <h4 class="product-card__name">VERD — Botanical Atelier</h4>
+                                        <span class="product-card__price">E-commerce · Fragrance</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logo -->
+                <span class="navbar__logo">LK</span>
+                <div class="header__actions">
+                    <a href="account.html" id="account-icon" aria-label="Account">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-user-icon lucide-user">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </a>
+                    <button class="header__search-btn" id="searchToggleBtn" aria-label="Search">
+                        <!-- Search Icon -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-search-icon lucide-search icon-search">
+                            <path d="m21 21-4.34-4.34" />
+                            <circle cx="11" cy="11" r="8" />
+                        </svg>
+                        <!-- Home Icon (hidden by default) -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-home-icon lucide-home icon-home">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <path d="M9 22V12h6v10" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <!--  -->
+            <section id="stage" class="stage">
+                <!--  -->
+                <div class="stage__videos">
+                    <video class="stage__video is-active" data-index="0" autoplay muted loop playsinline>
+                        <source src="0.mp4" type="video/mp4" />
+                    </video>
+                    <video class="stage__video" data-index="1" muted loop playsinline preload="none">
+                        <source data-src="1.mp4" type="video/mp4" />
+                    </video>
+                    <video class="stage__video" data-index="2" muted loop playsinline preload="none">
+                        <source data-src="2.mp4" type="video/mp4" />
+                    </video>
+                    <video class="stage__video" data-index="3" muted loop playsinline preload="none">
+                        <source data-src="3.mp4" type="video/mp4" />
+                    </video>
+                    <video class="stage__video" data-index="4" muted loop playsinline preload="none">
+                        <source data-src="4.mp4" type="video/mp4" />
+                    </video>
+                    <video class="stage__video" data-index="5" muted loop playsinline preload="none">
+                        <source data-src="5.mp4" type="video/mp4" />
+                    </video>
+                    <video class="stage__video" data-index="6" muted loop playsinline preload="none">
+                        <source data-src="6.mp4" type="video/mp4" />
+                    </video>
+                    <video class="stage__video" data-index="7" muted loop playsinline preload="none">
+                        <source data-src="7.mp4" type="video/mp4" />
+                    </video>
+                    <video class="stage__video" data-index="8" muted loop playsinline preload="none">
+                        <source data-src="8.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <!--  -->
+                <div class="stage__scrim"></div>
+                <!-- -->
+                <div class="stage__content">
+                    <h1>Luxury Krest</h1>
+                    <p>Elevate Your Brand</p>
+                    <button id="stage-cta" class="stage__cta">Explore Now</button>
+                </div>
+                <!--  -->
+                <div class="stage__cards">
+                    <div class="stage__cards-track-wrap">
+                        <div class="stage__cards-track" id="stage__cards-track">
+                            <article class="stage__card" data-index="0">
+                                <img
+                                    src="assets/images/3.jpeg"
+                                    alt="Project preview"
+                                    class="stage__card-image"
+                                    loading="lazy" />
+                                <div class="stage__card-overlay">
+                                    <a href="#" target="_blank" rel="noopener" class="stage__card-link">
+                                        Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <article class="stage__card" data-index="1">
+                                <img
+                                    src="assets/images/3.jpeg"
+                                    alt="Project preview"
+                                    class="stage__card-image"
+                                    loading="lazy" />
+                                <div class="stage__card-overlay">
+                                    <a href="#" target="_blank" rel="noopener" class="stage__card-link">
+                                        Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <article class="stage__card" data-index="2">
+                                <img
+                                    src="assets/images/3.jpeg"
+                                    alt="Project preview"
+                                    class="stage__card-image"
+                                    loading="lazy" />
+                                <div class="stage__card-overlay">
+                                    <a href="#" class="stage__card-link">
+                                        Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <article class="stage__card" data-index="3">
+                                <img
+                                    src="assets/images/3.jpeg"
+                                    alt="Project preview"
+                                    class="stage__card-image"
+                                    loading="lazy" />
+                                <div class="stage__card-overlay">
+                                    <a href="#" class="stage__card-link">
+                                        Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <article class="stage__card" data-index="4">
+                                <img
+                                    src="assets/images/3.jpeg"
+                                    alt="Project preview"
+                                    class="stage__card-image"
+                                    loading="lazy" />
+                                <div class="stage__card-overlay">
+                                    <a href="#" class="stage__card-link">
+                                        Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <article class="stage__card" data-index="5">
+                                <img
+                                    src="assets/images/3.jpeg"
+                                    alt="Project preview"
+                                    class="stage__card-image"
+                                    loading="lazy" />
+                                <div class="stage__card-overlay">
+                                    <a href="#" class="stage__card-link">
+                                        Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <article class="stage__card" data-index="6">
+                                <img
+                                    src="assets/images/3.jpeg"
+                                    alt="Project preview"
+                                    class="stage__card-image"
+                                    loading="lazy" />
+                                <div class="stage__card-overlay">
+                                    <a href="#" class="stage__card-link">
+                                        Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <article class="stage__card" data-index="7">
+                                <img
+                                    src="assets/images/3.jpeg"
+                                    alt="Project preview"
+                                    class="stage__card-image"
+                                    loading="lazy" />
+                                <div class="stage__card-overlay">
+                                    <a href="#" class="stage__card-link">
+                                        Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </article>
+                            <article class="stage__card" data-index="8">
+                                <img
+                                    src="assets/images/3.jpeg"
+                                    alt="Project preview"
+                                    class="stage__card-image"
+                                    loading="lazy" />
+                                <div class="stage__card-overlay">
+                                    <a href="#" class="stage__card-link">
+                                        Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            <!-- TRUST Animated stat counters + client logos -->
+            <section id="trust" class="trust">
+                <div class="trust__content">
+                    <span class="trust__content-label" data-fade style="transition-delay: 0.1s">lux krest</span>
+                    <h2 class="trust__content-title" data-fade style="transition-delay: 0.1s">
+                        The Measure of Meaning
+                    </h2>
+                    <p class="trust__content-text" data-fade style="transition-delay: 0.2s">
+                        Perfection is not measured by what has been added but by what could no longer be taken away.
+                        Every detail exists only because its absence would leave something incomplete and every creation
+                        seeks not admiration but inevitability-as though
+                    </p>
+                    <a href="#work" class="trust__cta" data-fade style="transition-delay: 0.2s">
+                        Founder/CCO<span class="about__cta-arrow"></span>
+                    </a>
+                </div>
+            </section>
+
+            <section id="work" class="work">
+                <!-- القسم الأول: الأعمال (خلفية بيج) -->
+                <div class="work__projects">
+                    <div class="sliper__container">
+                        <span class="slider__content-label"></span>
+                        <h2 class="slider__content-title">Work</h2>
+                        <p class="slider__content-text">Websites IN 1 Year</p>
+                        <div class="work__slider" id="work-slider">
+                            <article class="work__card" data-category="websites">
+                                <img src="assets/images/3.jpeg" alt="Project preview" class="work__card-image" />
+                                <div class="work__card-overlay">
+                                    <a href="#" target="_blank" rel="noopener" class="work__card-link"
+                                        >Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i
+                                    ></a>
+                                </div>
+                            </article>
+                            <article class="work__card" data-category="e-commerce">
+                                <img src="assets/images/3.jpeg" alt="Project preview" class="work__card-image" />
+                                <div class="work__card-overlay">
+                                    <a href="#" target="_blank" rel="noopener" class="work__card-link"
+                                        >Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i
+                                    ></a>
+                                </div>
+                            </article>
+                            <article class="work__card" data-category="landing-pages">
+                                <img src="assets/images/3.jpeg" alt="Project preview" class="work__card-image" />
+                                <div class="work__card-overlay">
+                                    <a href="#" class="work__card-link"
+                                        >Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i
+                                    ></a>
+                                </div>
+                            </article>
+                            <article class="work__card" data-category="saas">
+                                <img src="assets/images/3.jpeg" alt="Project preview" class="work__card-image" />
+                                <div class="work__card-overlay">
+                                    <a href="#" class="work__card-link"
+                                        >Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i
+                                    ></a>
+                                </div>
+                            </article>
+                            <article class="work__card" data-category="portfolio">
+                                <img src="assets/images/3.jpeg" alt="Project preview" class="work__card-image" />
+                                <div class="work__card-overlay">
+                                    <a href="#" class="work__card-link"
+                                        >Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i
+                                    ></a>
+                                </div>
+                            </article>
+                            <article class="work__card" data-category="websites">
+                                <img src="assets/images/3.jpeg" alt="Project preview" class="work__card-image" />
+                                <div class="work__card-overlay">
+                                    <a href="#" class="work__card-link"
+                                        >Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i
+                                    ></a>
+                                </div>
+                            </article>
+                            <article class="work__card" data-category="e-commerce">
+                                <img src="assets/images/3.jpeg" alt="Project preview" class="work__card-image" />
+                                <div class="work__card-overlay">
+                                    <a href="#" class="work__card-link"
+                                        >Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i
+                                    ></a>
+                                </div>
+                            </article>
+                            <article class="work__card" data-category="saas">
+                                <img src="assets/images/3.jpeg" alt="Project preview" class="work__card-image" />
+                                <div class="work__card-overlay">
+                                    <a href="#" class="work__card-link"
+                                        >Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i
+                                    ></a>
+                                </div>
+                            </article>
+
+                            <article class="work__card--cta">
+                                <span class="work__cta-plus">+</span>
+                                <span class="work__cta-label">Your Project</span>
+                            </article>
+                        </div>
+
+                        <div class="work__controls">
+                            <button class="work__arrow" onclick="scrollSlider(-1)" aria-label="Scroll left">
+                                <span class="material-symbols-outlined">chevron_left</span>
+                            </button>
+
+                            <div class="work__dots" id="work-dots"></div>
+
+                            <button class="work__arrow" onclick="scrollSlider(1)" aria-label="Scroll right">
+                                <span class="material-symbols-outlined">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="Work__actions">
+                        <h1 class="Work__title">Lux Krest</h1>
+                        <p class="Work__suptitle">Every website we build starts with a clear idea</p>
+                        <!-- Bottom CTA: Link + Divider + Button -->
+                        <div class="work__cta-group">
+                            <a href="#" class="work__cta-link">Learn More</a>
+                            <span class="work__cta-divider"></span>
+                            <button class="work__cta-btn">New Website Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Section -->
+                <div class="support">
+                    <!-- CTA -->
+
+                    <!-- Guarantees -->
+                    <div class="support__guarantees">
+                        <div class="support__item">
+                            <span class="support__marker"></span>
+                            <p class="support__text">You won't pay until you receive your website</p>
+                        </div>
+
+                        <div class="support__item">
+                            <span class="support__marker"></span>
+                            <p class="support__text">Your order can be canceled at any time</p>
+                        </div>
+
+                        <div class="support__item">
+                            <span class="support__marker"></span>
+                            <p class="support__text">
+                                You have the right to refuse the website without paying anything
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--  FOOTER  -->
+        <footer class="site-footer">
+            <div class="site-footer__top">
+                <div class="site-footer__brand">
+                    <p class="site-footer__logo">LK Luxury Krest</p>
+                    <p class="site-footer__tagline">Crafted Web Experiences For Fashion &amp; Luxury Brands</p>
+                </div>
+
+                <div class="site-footer__social">
+                    <p class="site-footer__heading">Follow US</p>
+                    <div class="site-footer__icons">
+                        <a
+                            href="https://instagram.com/luxurykrest"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a
+                            href="https://pinterest.com/luxurykrest"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Pinterest">
+                            <i class="fa-brands fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--  SEARCH OVERLAY  -->
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-overlay__wrapper">
+                <div class="search-overlay__input-wrap">
+                    <div class="search-overlay__ghost" id="searchGhost" aria-hidden="true"></div>
+                    <input
+                        type="search"
+                        class="search-overlay__input"
+                        id="searchInput"
+                        placeholder="What Are You Looking For..."
+                        autocomplete="off" />
+                </div>
+
+                <!-- Recent Searches (shown if history exists) -->
+                <div class="recent-searches" id="recentSearches"></div>
+                <!-- No Results State -->
+                <div class="search-overlay__empty" id="emptyState">
+                    <p>No results for "<span id="emptyQuery"></span>"</p>
+                    <span>Try checking the spelling or use a more general term</span>
+                </div>
+                <!-- Popular Searches -->
+                <div class="popular-searches">
+                    <p class="popular-searches__title">Popular</p>
+                    <a class="popular-searches__link" href="#stage">Website</a>
+                    <a class="popular-searches__link" href="#work__cta-btn">New Website</a>
+                    <a class="popular-searches__link" href="#work-cards">Work</a>
+                </div>
+
+                <!-- Featured Projects -->
+                <div class="search-overlay__products">
+                    <p class="popular-searches__title">New Arrivals</p>
+                    <div class="product-grid">
+                        <a href="#" class="product-card">
+                            <div class="product-card__image">
+                                <img src="3.jpg" alt="VERD Botanical Atelier website" />
+                            </div>
+                            <div class="product-card__info">
+                                <h4 class="product-card__name">VERD — Botanical Atelier</h4>
+                                <span class="product-card__price">E-commerce · Fragrance</span>
+                            </div>
+                        </a>
+                        <a href="#" class="product-card">
+                            <div class="product-card__image">
+                                <img src="3.jpg" alt="Corporate website project" />
+                            </div>
+                            <div class="product-card__info">
+                                <h4 class="product-card__name">Northgate Consulting</h4>
+                                <span class="product-card__price">Corporate · Consulting</span>
+                            </div>
+                        </a>
+                        <a href="#" class="product-card">
+                            <div class="product-card__image">
+                                <img src="3.jpg" alt="Portfolio website project" />
+                            </div>
+                            <div class="product-card__info">
+                                <h4 class="product-card__name">Studio Marin</h4>
+                                <span class="product-card__price">Portfolio · Architecture</span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="product-card">
+                            <div class="product-card__image">
+                                <img src="3.jpg" alt="VERD Botanical Atelier website" />
+                            </div>
+                            <div class="product-card__info">
+                                <h4 class="product-card__name">VERD — Botanical Atelier</h4>
+                                <span class="product-card__price">E-commerce · Fragrance</span>
+                            </div>
+                        </a>
+                        <a href="#" class="product-card">
+                            <div class="product-card__image">
+                                <img src="3.jpg" alt="Corporate website project" />
+                            </div>
+                            <div class="product-card__info">
+                                <h4 class="product-card__name">Northgate Consulting</h4>
+                                <span class="product-card__price">Corporate · Consulting</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  WIZARD MODAL 3-step "New Project" request flow, opened from the Work section's CTA card. -->
+        <div class="wizard-overlay" id="wizard-overlay">
+            <div class="wizard">
+                <div class="wizard__indicator">
+                    <div class="wizard__dot" id="dot-1"></div>
+                    <div class="wizard__dot" id="dot-2"></div>
+                    <div class="wizard__dot" id="dot-3"></div>
+                </div>
+                <!-- Step 1: choose a project type -->
+                <div class="wizard__step active" id="step-1">
+                    <p class="wizard__label">1 Of 3</p>
+                    <h2 class="wizard__title">What kind of Website</h2>
+                    <div class="wizard__types">
+                        <button class="wizard__type" data-type="E-Commerce">
+                            <span class="wizard__type-icon">🛍️</span><span class="wizard__type-name">E-Commerce</span>
+                        </button>
+                        <button class="wizard__type" data-type="Portfolio">
+                            <span class="wizard__type-icon">🎨</span><span class="wizard__type-name">Portfolio</span>
+                        </button>
+                        <button class="wizard__type" data-type="Landing Page">
+                            <span class="wizard__type-icon">🚀</span><span class="wizard__type-name">Landing Page</span>
+                        </button>
+                        <button class="wizard__type" data-type="SaaS">
+                            <span class="wizard__type-icon">⚙️</span><span class="wizard__type-name">SaaS</span>
+                        </button>
+                        <button class="wizard__type" data-type="Educational">
+                            <span class="wizard__type-icon">📚</span><span class="wizard__type-name">Educational</span>
+                        </button>
+                        <button class="wizard__type" data-type="Other">
+                            <span class="wizard__type-icon">💡</span><span class="wizard__type-name">Other</span>
+                        </button>
+                    </div>
+                    <button class="wizard__next" id="next-1" disabled>Next</button>
+                </div>
+                <!-- Step 2: contact details -->
+                <div class="wizard__step" id="step-2">
+                    <p class="wizard__label">2 of 3</p>
+                    <h2 class="wizard__title">Tell me a bit about you</h2>
+                    <input class="wizard__input" id="input-name" type="text" placeholder="Your Name" />
+                    <input class="wizard__input" id="input-project" type="text" placeholder="Project Idea" />
+                    <input class="wizard__input" id="input-contact" type="text" placeholder="WhatsApp" />
+                    <button class="wizard__next" id="next-2" disabled>Send Request</button>
+                </div>
+                <!-- Step 3: confirmation -->
+                <div class="wizard__step" id="step-3">
+                    <div class="wizard__success">
+                        <div class="wizard__success-icon">✓</div>
+                        <h2 class="wizard__success-title">Request Sent</h2>
+                        <p class="wizard__success-text">
+                            Thanks for reaching out — we'll get back to you shortly to discuss your project
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Script -->
+        <script src="assets/js/layout/app.js"></script>
+        <script src="assets/js/layout/elements.js"></script>
+        <script src="assets/js/layout/header.js"></script>
+        <script src="assets/js/layout/stage.js"></script>
+        <script src="assets/js/layout/trust.js"></script>
+        <script src="assets/js/layout/work.js"></script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="eb">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="stylesheet" href="/assets/css/pages/pages.css" />
+        <title>Verify</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">Enter Verification Code</div>
+            <p class="desc">We sent a code to <span id="savedEmail"></span></p>
+            <div class="otp-container">
+                <input class="otp" maxlength="1" /><input class="otp" maxlength="1" /><input
+                    class="otp"
+                    maxlength="1" /><input class="otp" maxlength="1" /><input class="otp" maxlength="1" /><input
+                    class="otp"
+                    maxlength="1" />
+            </div>
+            <button class="btn" onclick="verifyOtp()">Verify</button>
+            <div class="small" id="resendText">Request a new code in <span id="countdown">30</span> seconds</div>
+        </div>
+        <script src="/assets/js/pages/pages.js"></script>
+    </body>
+</html>

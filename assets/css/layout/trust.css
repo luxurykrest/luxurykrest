@@ -1,0 +1,206 @@
+/* ──────────────────────────────────────────────────────────
+     8. TRUST SECTION
+     ────────────────────────────────────────────────────────── */
+.trust {
+    background: var(--color-white);
+    color: var(--color-text);
+    padding: 40px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-family: var(--font-sans);
+}
+
+.trust__stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    color: var(--color-subtext);
+}
+.trust__stat {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+    padding: 0 32px;
+    position: relative;
+    cursor: default;
+}
+
+.trust__number {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    transition: opacity 0.25s ease;
+}
+
+.trust__label {
+    font-size: 10px;
+    letter-spacing: 0.03em;
+}
+
+.trust__content-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--color-subtext);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.trust__content-title {
+    font-size: 21px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+
+    color: var(--color-text);
+}
+.trust__content-text {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--color-subtext);
+    margin-bottom: 20px;
+}
+
+.trust__cta {
+    display: inline-flex;
+    gap: 6px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+    transition:
+        gap 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.trust__cta:hover {
+    gap: 10px;
+    border-color: var(--color-text);
+}
+
+.trust__cta-arrow {
+    transition: transform 0.25s ease;
+}
+
+.trust__cta:hover .about__cta-arrow {
+    transform: translateX(2px);
+}
+
+/* ── Stat Counters ── */
+.trust__stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.trust__stat {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+    padding: 0 16px;
+    position: relative;
+    cursor: default;
+}
+
+.trust__stat:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.trust__number {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    transition: opacity 0.25s ease;
+}
+
+.trust__stat:hover .trust__number {
+    opacity: 0.55;
+}
+
+.trust__label {
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    color: var(--color-text);
+    transition: opacity 0.25s ease;
+}
+
+.trust__stat:hover .trust__label {
+    opacity: 0.55;
+}
+
+/* ── Client logos strip ── */
+.trust__logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+
+.trust__logo {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: #999;
+    filter: grayscale(1);
+    opacity: 0.6;
+    transition: opacity 0.25s ease;
+}
+
+.trust__logo:hover {
+    opacity: 1;
+}
+
+/* ── Micro quote ── */
+.trust__quote {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+}
+
+.trust__quote-text {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
+    margin: 0 0 10px;
+}
+
+.trust__quote-cite {
+    font-style: normal;
+    font-size: 11px;
+    color: #999;
+}
+
+/* ── Fade-up on scroll ── */
+.trust [data-fade] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.trust [data-fade].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
